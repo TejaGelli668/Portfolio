@@ -7,20 +7,36 @@ export const Projects = () => {
 
   const projects = [
     {
-      title: "Pet Adoption Management System",
-      description: "A comprehensive full-stack platform for pet adoption management featuring user authentication, admin dashboard, pet listing/management, adoption workflow with payment integration, pet donation system, and vaccination tracking. Includes separate admin and user portals with role-based access control.",
-      technologies: ["Spring Boot", "JavaScript (ES6)", "React", "NoSQL", "Bootstrap", "Payment Integration"],
-      githubUrl: "https://github.com/TejaGelli668/pet-adoption-ui",
-      backendUrl: "https://github.com/TejaGelli668/pet-adoption-api",
+      title: "RentMate AI - AI-Powered Rental Marketplace",
+      description: "An intelligent peer-to-peer rental platform using AI for natural language search, automated trust & safety, smart recommendations, and fraud detection. Features comprehensive admin dashboard with user management, content moderation, and real-time analytics for efficient platform management.",
+      technologies: ["React", "Spring Boot", "PostgreSQL", "Redis", "Gemini AI", "JWT", "AWS S3", "WebSocket"],
+      githubUrl: "https://github.com/TejaGelli668/RentMate-Frontend",
+      backendUrl: "https://github.com/TejaGelli668/RentMate-Backend",
       features: [
-        "User & Admin Authentication",
-        "Pet Adoption Workflow with Payment",
-        "Pet Donation Management", 
-        "Vaccination Tracking System",
-        "Admin Dashboard & User Management",
-        "Role-based Access Control"
+        "AI-Powered Intent-Based Search (95% Accuracy)",
+        "Smart Fraud Detection & User Verification",
+        "Dynamic Pricing & Recommendation Engine",
+        "Comprehensive Admin Dashboard",
+        "Real-time Booking & Payment System",
+        "Automated Content Moderation & Analytics"
       ],
-      image: "/lovable-uploads/db4b92e5-e2c8-4c29-a6a7-48eaa4f1b10c.png"
+      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop"
+    },
+    {
+      title: "AI-Powered Financial Workflow Automation",
+      description: "A comprehensive AI-powered SaaS platform for financial workflow automation featuring Google Gemini AI document processing, real-time analytics, and automated bill management. Includes advanced features like duplicate detection, export capabilities, and intelligent workflow automation.",
+      technologies: ["React", "TypeScript", "Node.js", "PostgreSQL", "Google Gemini AI", "Prisma", "JWT", "AWS S3"],
+      githubUrl: "https://github.com/TejaGelli668/AI-Financial-Workflow-Automation",
+      backendUrl: "https://github.com/TejaGelli668/AI-Financial-Workflow-Automation/tree/main/backend",
+      features: [
+        "AI Document Processing with 90%+ Accuracy",
+        "Real-time Financial Analytics Dashboard",
+        "Automated Bill Management & Reminders",
+        "Professional Export System (CSV/Excel/PDF)",
+        "Duplicate Detection & Anomaly Analysis",
+        "Multi-format Document Support & Parsing"
+      ],
+      image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop"
     },
     {
       title: "Cinema Management & Booking Platform",
@@ -36,7 +52,27 @@ export const Projects = () => {
         "Admin Dashboard & Analytics",
         "Food & Beverage Ordering"
       ],
-      image: "/lovable-uploads/db4b92e5-e2c8-4c29-a6a7-48eaa4f1b10c.png"
+      image: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=600&h=400&fit=crop"
+    }
+  ];
+
+  // Additional projects that will be shown when "Load More" is clicked
+  const additionalProjects = [
+    {
+      title: "Pet Adoption Management System",
+      description: "A comprehensive full-stack platform for pet adoption management featuring user authentication, admin dashboard, pet listing/management, adoption workflow with payment integration, pet donation system, and vaccination tracking. Includes separate admin and user portals with role-based access control.",
+      technologies: ["Spring Boot", "JavaScript (ES6)", "React", "NoSQL", "Bootstrap", "Payment Integration"],
+      githubUrl: "https://github.com/TejaGelli668/pet-adoption-ui",
+      backendUrl: "https://github.com/TejaGelli668/pet-adoption-api",
+      features: [
+        "User & Admin Authentication",
+        "Pet Adoption Workflow with Payment",
+        "Pet Donation Management", 
+        "Vaccination Tracking System",
+        "Admin Dashboard & User Management",
+        "Role-based Access Control"
+      ],
+      image: "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=600&h=400&fit=crop"
     },
     {
       title: "Charity Donation Platform",
@@ -52,31 +88,8 @@ export const Projects = () => {
         "AWS Cloud Deployment & Scaling",
         "Real-time Donation Tracking"
       ],
-      image: "/lovable-uploads/6bdecb5d-e282-4f0b-a329-a8249857c973.png"
-    }
-  ];
-
-  // Additional projects that will be shown when "Load More" is clicked
-  const additionalProjects = [
-    {
-      title: "Door-to-Door Courier Service",
-      description: "Developed a user-friendly platform for parcel delivery management with features including user registration, parcel creation, admin approval, and secure pickup.",
-      technologies: ["NodeJS", "ReactJS", "MySQL"],
-      githubUrl: "https://github.com/tejagelli/courier-service",
-      image: "/lovable-uploads/32d3d051-a5b3-4c7e-9858-15d4a9f0729b.png"
-    },
-    {
-      title: "E-Commerce Platform",
-      description: "Built a full-stack e-commerce solution with payment integration and inventory management.",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-      githubUrl: "https://github.com/tejagelli/ecommerce-platform",
-    },
-    {
-      title: "Task Management App",
-      description: "Developed a collaborative task management application with real-time updates and team collaboration features.",
-      technologies: ["Vue.js", "Express", "Socket.io", "PostgreSQL"],
-      githubUrl: "https://github.com/tejagelli/task-manager",
-    }
+      image: "https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=600&h=400&fit=crop"
+     },
   ];
 
   const handleGithubClick = (url) => {
@@ -101,6 +114,13 @@ export const Projects = () => {
           {displayedProjects.map((project, index) => (
             <div key={index} className="bg-white/10 backdrop-blur-sm rounded-xl overflow-hidden hover:bg-white/20 transition-all duration-300 group">
               <div className="aspect-video bg-gradient-to-br from-green-500 to-green-700 relative overflow-hidden">
+                {project.image ? (
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-full object-cover"
+                  />
+                ) : null}
                 <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
                   <div className="text-white text-center">
                     <h3 className="text-xl font-bold mb-2">{project.title}</h3>

@@ -1,3 +1,19 @@
+Add these lines at the top of your index.css or App.css file
+
+html {
+  background-color: #000000;
+}
+
+body {
+  margin: 0;
+  background-color: #000000;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -39,4 +55,100 @@
 
 .read-the-docs {
   color: #888;
+}
+/* Add these lines at the top of your index.css or App.css file */
+html {
+  background-color: #000000;
+  min-height: 100vh; /* Ensure full viewport height */
+}
+
+body {
+  margin: 0;
+  padding: 0; /* Remove any default padding */
+  background-color: #000000;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh; /* Ensure full viewport height */
+}
+
+/* Remove the max-width constraint and centering that causes white space */
+#root {
+  background-color: #000000; /* Ensure root has black background */
+  min-height: 100vh; /* Full viewport height */
+  width: 100%; /* Full width */
+  padding: 0; /* Remove padding that creates white space */
+  margin: 0; /* Remove margin */
+  /* Remove text-align: center; as it may not be needed globally */
+}
+
+/* If you need container constraints, create a separate container class */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Fix for any remaining white space issues */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Ensure full viewport coverage */
+html, body, #root {
+  height: 100%;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* Prevent white overscroll and ensure dark background */
+html, body {
+  background: #000 !important;
+  min-height: 100vh;
+  overscroll-behavior: none;
+}
+
+#root {
+  background: #000 !important;
+  min-height: 100vh;
 }

@@ -53,10 +53,14 @@ export const Skills = () => {
           <h3 className="text-2xl font-bold text-green-400 mb-6">Education & Certifications</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-              <h4 className="text-lg font-bold text-green-400">Masters in Computer Science</h4>
-              <p className="text-white/90">University Of Central Missouri, Warrensburg, MO</p>
+              <h4 className="text-lg font-bold text-green-400">Master's in Computer Science</h4>
+              <p className="text-white/90">University Of Central Missouri, Warrensburg, MO (GPA: 3.7/4.0)</p>
+              <h4 className="text-lg font-bold text-green-400">Bachelor's in Electronics and Communication Engineering</h4>
+              <p className="text-white/90">Gudlavalleru Engineering College, Gudlavalleru, AP (GPA: 4.0/4.0)</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+              <h4 className="text-lg font-bold text-green-400">Amazon Web Services</h4>
+              <p className="text-white/90">Certified Solutions Architect (In Progress)</p>
               <h4 className="text-lg font-bold text-green-400">Google Cloud Platform</h4>
               <p className="text-white/90">Associate Cloud Engineer (Feb 2022 – Feb 2025)</p>
             </div>

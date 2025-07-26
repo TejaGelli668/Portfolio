@@ -42,7 +42,7 @@ export const Hero = () => {
   };
 
   const sendEmail = () => {
-    window.open("mailto:gtnvvsunil9999@gmail.com", "_blank");
+    window.open("mailto:gelliteja1998@gmail.com", "_blank");
   };
 
   return (
