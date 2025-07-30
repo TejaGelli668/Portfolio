@@ -19,8 +19,8 @@ export const Contact = () => {
     {
       icon: Linkedin,
       label: "LinkedIn",
-      value: "linkedin.com/in/tejagelli",
-      href: "https://linkedin.com/in/tejagelli"
+      value: "TejaGelli",
+      href: "https://www.linkedin.com/in/gelliteja1998/"
     },
     {
       icon: Github,
