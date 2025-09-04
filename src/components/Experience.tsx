@@ -1,14 +1,14 @@
 export const Experience = () => {
   const experiences = [
     {
-      title: "Java Full Stack Developer",
+      title: "Software Engineer",
       company: "Hartford Financial Services Group",
       period: "July 2024 – Present",
       location: "USA",
       description: "Currently architecting and developing complex financial services applications at Hartford Financial Services Group, where I focus on building robust full-stack solutions for insurance policy management. My work involves designing sophisticated UI state management solutions using React that have improved user interaction efficiency by 25%, while simultaneously developing serverless microservices with Node.js and AWS Lambda to resolve critical financial data processing bottlenecks.\n\nI've successfully integrated multiple downstream REST and SOAP APIs to maintain consistent business logic across various insurance applications, and established a comprehensive CI/CD pipeline with automated testing that has eliminated deployment failures. My commitment to code quality is reflected in implementing thorough unit testing frameworks using JUnit and resolving SonarQube violations to meet enterprise standards. I actively monitor production systems using Kibana and Splunk, ensuring optimal performance and proactively identifying issues before they impact our financial services operations."
     },
     {
-      title: "Java Full Stack Developer",
+      title: "Software Engineer",
       company: "United Services Automobile Association",
       period: "July 2020 – December 2022",
       location: "India",
