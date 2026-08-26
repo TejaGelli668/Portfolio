@@ -2,116 +2,209 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/*
+  Modern dark portfolio at the Stripe / Framer craft bar.
+  Near-black ground under a living gradient mesh; violet→cyan spectrum;
+  glass surfaces with gradient borders; motion is a requirement, not decoration.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --background: 240 30% 6%;
+    --foreground: 228 33% 97%;
+    --card: 240 24% 9%;
+    --card-foreground: 228 33% 97%;
+    --popover: 240 24% 9%;
+    --popover-foreground: 228 33% 97%;
+    --primary: 252 100% 68%;
+    --primary-foreground: 240 30% 6%;
+    --secondary: 240 20% 13%;
+    --secondary-foreground: 228 33% 97%;
+    --muted: 240 20% 13%;
+    --muted-foreground: 226 14% 66%;
+    --accent: 187 85% 53%;
+    --accent-foreground: 240 30% 6%;
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 228 33% 97%;
+    --border: 240 20% 18%;
+    --input: 240 20% 18%;
+    --ring: 252 100% 68%;
+    --radius: 1rem;
   }
 }
 
 @layer base {
-  * {
-    @apply border-border;
+  * { @apply border-border; }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
   }
 
   body {
-    @apply bg-background text-foreground;
+    background-color: #07070C;
+    color: #F5F6FA;
+    font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 { font-family: 'Sora', ui-sans-serif, system-ui, sans-serif; }
+
+  ::selection { background: rgba(124, 92, 255, 0.4); color: #ffffff; }
+
+  :focus-visible {
+    outline: 2px solid #22D3EE;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  * { scrollbar-width: thin; scrollbar-color: #2E2E44 #07070C; }
+  *::-webkit-scrollbar { width: 10px; height: 10px; }
+  *::-webkit-scrollbar-track { background: #07070C; }
+  *::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #7C5CFF, #22D3EE);
+    border-radius: 99px;
+    border: 3px solid #07070C;
   }
 }
 
-/* Prevent white overscroll and ensure dark background */
-html, body {
-  background: #000 !important;
-  min-height: 100vh;
-  overscroll-behavior: none;
+@layer components {
+  /* ── The living mesh. Three drifting colour fields over the void. ─────────── */
+  .mesh {
+    position: fixed;
+    inset: -20%;
+    z-index: 0;
+    pointer-events: none;
+    filter: blur(90px);
+    opacity: 0.75;
+  }
+  .mesh span {
+    position: absolute;
+    display: block;
+    border-radius: 50%;
+    will-change: transform;
+  }
+  .mesh-1 {
+    width: 46vw; height: 46vw; left: 4%; top: 2%;
+    background: radial-gradient(circle, rgba(124,92,255,0.85) 0%, rgba(124,92,255,0) 68%);
+  }
+  .mesh-2 {
+    width: 40vw; height: 40vw; right: 2%; top: 12%;
+    background: radial-gradient(circle, rgba(34,211,238,0.6) 0%, rgba(34,211,238,0) 68%);
+  }
+  .mesh-3 {
+    width: 38vw; height: 38vw; left: 30%; top: 45%;
+    background: radial-gradient(circle, rgba(244,114,182,0.42) 0%, rgba(244,114,182,0) 70%);
+  }
+
+  /* Fine grid, so the ground is a surface rather than a void */
+  .grid-veil {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.028) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.028) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, #000 30%, transparent 78%);
+  }
+
+  /* ── Surfaces ────────────────────────────────────────────────────────────── */
+  .glass {
+    background: linear-gradient(160deg, rgba(255,255,255,0.055), rgba(255,255,255,0.018));
+    border: 1px solid rgba(255,255,255,0.09);
+    backdrop-filter: blur(14px);
+  }
+
+  /* Gradient border that survives a radius — a masked ring, not a fake inset. */
+  .ring-gradient {
+    position: relative;
+  }
+  .ring-gradient::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(140deg, rgba(124,92,255,0.75), rgba(34,211,238,0.5) 45%, rgba(255,255,255,0.06) 75%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.65;
+    transition: opacity 420ms ease;
+    pointer-events: none;
+  }
+  .ring-gradient:hover::before { opacity: 1; }
+
+  /* Cursor-tracked spotlight; --mx/--my are set in JS. */
+  .spotlight::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(340px circle at var(--mx, 50%) var(--my, 50%), rgba(124,92,255,0.16), transparent 62%);
+    opacity: 0;
+    transition: opacity 420ms ease;
+    pointer-events: none;
+  }
+  .spotlight:hover::after { opacity: 1; }
+
+  .lift {
+    transition: transform 480ms cubic-bezier(0.16,1,0.3,1), box-shadow 480ms ease;
+  }
+  .lift:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 60px -22px rgba(124,92,255,0.55);
+  }
+
+  /* ── Type ────────────────────────────────────────────────────────────────── */
+  .grad-text {
+    background: linear-gradient(100deg, #A78BFA 0%, #22D3EE 42%, #F472B6 80%, #A78BFA 100%);
+    background-size: 220% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: pan 8s ease-in-out infinite;
+  }
+
+  .eyebrow-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.9rem;
+    border-radius: 99px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #C7CBDA;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  /* ── Scroll choreography. Elements start hidden, JS adds .in. ────────────── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 780ms cubic-bezier(0.16,1,0.3,1), transform 780ms cubic-bezier(0.16,1,0.3,1);
+    transition-delay: var(--d, 0ms);
+    will-change: transform, opacity;
+  }
+  .reveal.in { opacity: 1; transform: none; }
+
+  .marquee-mask {
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
 }
 
-#root {
-  background: #000 !important;
-  min-height: 100vh;
+/* Motion is the point here, but it still stops when asked. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .mesh span, .grad-text, .marquee-track { animation: none !important; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }

@@ -1,90 +1,111 @@
-export const Skills = () => {
-  const skillCategories = [
-    {
-      title: "Programming & Scripting",
-      skills: ["Java 8/11/17/21", "JavaScript (ES6+)", "NodeJS", "Python", "SQL/PL-SQL", "Shell Scripting", "Unix Scripting"]
-    },
-    {
-      title: "Frameworks & Libraries",
-      skills: ["Spring Boot 3+", "Spring Framework", "ReactJS", "Angular", "Hibernate", "Microservices", "RESTful APIs", "JUnit", "Mockito"]
-    },
-    {
-      title: "Databases & Messaging",
-      skills: ["PostgreSQL", "Oracle", "SQL Server", "MySQL", "MongoDB", "Snowflake", "AWS DynamoDB", "Kafka", "JMS", "SQL Query Optimization"]
-    },
-    {
-      title: "Cloud & DevOps",
-      skills: ["AWS (S3, SQS, EC2, KMS, RDS)", "Docker", "Kubernetes", "Jenkins", "GCP", "Azure", "CI/CD Pipelines", "GitLab/Bitbucket"]
-    },
-    {
-      title: "Tools & Platforms",
-      skills: ["IntelliJ IDEA", "Eclipse", "VS Code", "Postman", "Git", "GitHub", "Maven", "SonarQube"]
-    },
-    {
-      title: "Testing & Quality",
-      skills: ["JUnit", "Mockito", "TestNG", "React Testing Library", "Test-Driven Development (TDD)", "API Testing & Automation", "Code Reviews"]
-    },
-    {
-      title: "Security & Automation",
-      skills: ["Web Application Firewall (WAF)", "AI-driven Automation", "Postman Automation", "Documentation & Compliance"]
-    },
-    {
-      title: "Methodologies",
-      skills: ["Agile/Scrum", "SDLC", "Microservices Architecture", "Domain-Driven Design"]
-    }
-  ];
+import { Reveal } from "@/components/motion/Reveal";
+import { onSpotlightMove } from "@/hooks/use-spotlight";
 
+const groups = [
+  {
+    title: "AI-assisted development",
+    accent: "from-violet to-pink",
+    items: ["Claude Code", "GitHub Copilot", "OpenAI Codex", "Google ADK", "LiteLLM", "Prompt engineering"],
+  },
+  {
+    title: "Languages",
+    accent: "from-cyan to-violet",
+    items: ["Python", "Java", "TypeScript", "JavaScript", "SQL", "Bash"],
+  },
+  {
+    title: "Frameworks",
+    accent: "from-pink to-amber",
+    items: ["React", "Flask", "FastAPI", "Node.js", "Spring Boot", "REST APIs", "GraphQL"],
+  },
+  {
+    title: "Cloud & infrastructure",
+    accent: "from-amber to-cyan",
+    items: ["Google Cloud", "Cloud Run", "Terraform", "Docker", "Kubernetes", "GitHub Actions", "CI/CD"],
+  },
+  {
+    title: "Data & operations",
+    accent: "from-violet to-cyan",
+    items: ["PostgreSQL", "SQLite", "Splunk", "Grafana", "ELK", "CloudWatch"],
+  },
+  {
+    title: "Security & networking",
+    accent: "from-cyan to-pink",
+    items: ["Akamai WAF", "RBAC", "HTTP/S", "DNS", "Load balancing", "Attack-surface discovery"],
+  },
+];
+
+const marquee = [
+  "Python", "React", "TypeScript", "Terraform", "Google Cloud", "Docker", "Flask",
+  "Splunk", "Akamai", "Kubernetes", "PostgreSQL", "Claude Code", "FastAPI", "Spring Boot",
+];
+
+const education = [
+  { degree: "M.S. Computer Science", school: "University of Central Missouri", detail: "Lee's Summit, Missouri · GPA 3.7/4.0 (self-reported)" },
+  { degree: "B.Tech, Electronics & Communication", school: "Seshadri Rao Gudlavalleru Engineering College", detail: "India · GPA 4.0/4.0 (self-reported)" },
+];
+
+export const Skills = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center px-8 lg:px-16 py-20">
-      <div className="max-w-6xl mx-auto animate-fade-in">
-        <h2 className="text-4xl lg:text-5xl font-bold text-green-400 mb-12">Skills & Expertise</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-          {skillCategories.map((category, index) => (
-            <div key={index} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/20 transition-all duration-300">
-              <h3 className="text-xl font-bold text-green-400 mb-4">{category.title}</h3>
-              <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill, idx) => (
+    <div className="mx-auto max-w-6xl px-6 py-24 lg:px-8 lg:py-32">
+      <Reveal>
+        <h2 className="font-display text-[clamp(2rem,4.5vw,3rem)] font-bold tracking-[-0.03em]">
+          The <span className="grad-text">toolkit</span>
+        </h2>
+      </Reveal>
+
+      {/* Continuous marquee — the stack, always moving */}
+      <Reveal delay={90}>
+        <div className="marquee-mask mt-10 overflow-hidden py-2">
+          <div className="marquee-track flex w-max animate-marquee gap-3">
+            {[...marquee, ...marquee].map((tech, i) => (
+              <span
+                key={`${tech}-${i}`}
+                className="glass whitespace-nowrap rounded-full px-5 py-2.5 text-sm font-semibold text-white/85"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+      </Reveal>
+
+      <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {groups.map((g, i) => (
+          <Reveal key={g.title} delay={140 + i * 70}>
+            <div
+              onMouseMove={onSpotlightMove}
+              className="glass ring-gradient spotlight lift relative h-full overflow-hidden rounded-2xl p-6"
+            >
+              <div aria-hidden="true" className={`h-1 w-12 rounded-full bg-gradient-to-r ${g.accent}`} />
+              <h3 className="mt-4 font-display text-base font-bold text-white">{g.title}</h3>
+              <div className="mt-4 flex flex-wrap gap-1.5">
+                {g.items.map((item) => (
                   <span
-                    key={idx}
-                    className="bg-white/20 text-white px-3 py-1 rounded-full text-sm font-medium hover:bg-green-400 hover:text-black transition-all duration-200 cursor-pointer"
+                    key={item}
+                    className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-2.5 py-1 text-[0.8125rem] text-ghost transition-colors duration-300 hover:border-violet/40 hover:text-white"
                   >
-                    {skill}
+                    {item}
                   </span>
                 ))}
               </div>
             </div>
-          ))}
-        </div>
-        
-        <div className="mt-12">
-          <h3 className="text-2xl font-bold text-green-400 mb-6">Education & Certifications</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-              <div className="mb-4">
-                <h4 className="text-lg font-bold text-green-400 mb-1">Master's in Computer Science</h4>
-                <p className="text-white/90">University Of Central Missouri, Warrensburg, MO</p>
-                <p className="text-white/70 text-sm">GPA: 3.7/4.0</p>
-              </div>
-              <div>
-                <h4 className="text-lg font-bold text-green-400 mb-1">Bachelor's in Electronics and Communication Engineering</h4>
-                <p className="text-white/90">Gudlavalleru Engineering College, Gudlavalleru, AP</p>
-                <p className="text-white/70 text-sm">GPA: 4.0/4.0</p>
-              </div>
+          </Reveal>
+        ))}
+      </div>
+
+      <Reveal delay={200}>
+        <h3 className="mt-16 font-display text-xl font-bold text-white">Education</h3>
+      </Reveal>
+      <div className="mt-5 grid gap-4 md:grid-cols-2">
+        {education.map((e, i) => (
+          <Reveal key={e.degree} delay={240 + i * 80}>
+            <div className="glass ring-gradient lift h-full rounded-2xl p-6">
+              <h4 className="font-display font-bold text-white">{e.degree}</h4>
+              <p className="mt-1.5 text-ghost">{e.school}</p>
+              <p className="mt-1 text-sm text-ghost/70">{e.detail}</p>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-              <div className="mb-4">
-                <h4 className="text-lg font-bold text-green-400 mb-1">AWS Certified Solutions Architect</h4>
-                <p className="text-white/90">Amazon Web Services</p>
-                <p className="text-white/70 text-sm">In Progress</p>
-              </div>
-              <div>
-                <h4 className="text-lg font-bold text-green-400 mb-1">Associate Cloud Engineer</h4>
-                <p className="text-white/90">Google Cloud Platform</p>
-                <p className="text-white/70 text-sm">Feb 2022 – Feb 2025</p>
-              </div>
-            </div>
-          </div>
-        </div>
+          </Reveal>
+        ))}
       </div>
     </div>
   );

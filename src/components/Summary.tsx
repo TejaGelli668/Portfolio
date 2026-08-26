@@ -1,12 +1,48 @@
+import { Reveal } from "@/components/motion/Reveal";
+
+const pillars = [
+  {
+    title: "Automation that runs itself",
+    body: "Zero-touch pipelines that poll, decide, and act — an 8-stage validation flow that files its own tickets and replies in-thread, guarded by idempotency gates.",
+  },
+  {
+    title: "AI where it does real work",
+    body: "An LLM agent on Google ADK and LiteLLM that drafts security attestations, tiering models by job and grounding every call in a deterministic decision engine.",
+  },
+  {
+    title: "The platform underneath",
+    body: "Fleet health monitoring, job runners with live log streaming, and credential rotation — the layer most engineers never build under their own tools.",
+  },
+];
+
 export const Summary = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center px-6 lg:px-16 py-8">
-      <div className="max-w-5xl mx-auto animate-fade-in">
-        <h2 className="text-4xl lg:text-5xl font-bold text-green-400 mb-12 text-center">Professional Summary</h2>
-        
-        <p className="text-xl lg:text-2xl leading-relaxed text-gray-300 text-center">
-          Around 5 years of IT experience specializing in System Analysis, Design, and Development of Web and Client-Server Enterprise Applications using Java/J2EE Technologies. Hands-on experience in development, particularly with frameworks like Spring Boot, focusing on minimizing boilerplate code usage to enhance efficiency and streamline development processes. Extensive experience in implementing microservices architecture, involving the decomposition of applications into smaller, more manageable services. Demonstrates excellent problem-solving and debugging skills, efficiently identifying, and resolving technical issues to maintain application stability with a proactive approach. Proficient in working with both relational (MySQL, PostgreSQL) and NoSQL databases (MongoDB), adept at selecting the most suitable database type based on project requirements to ensure efficient data storage, retrieval, and manipulation. Experienced professional proficient in designing and deploying scalable applications on AWS, utilizing services such as S3, EC2, EMR, Lambda, DocumentDB, SQS, VPC, Amplify, API Gateway, and Elastic Beanstalk to ensure efficient and reliable performance in cloud environments.
+    <div className="mx-auto max-w-6xl px-6 py-24 lg:px-8 lg:py-32">
+      <Reveal>
+        <h2 className="font-display text-[clamp(2rem,4.5vw,3rem)] font-bold tracking-[-0.03em]">
+          What I actually <span className="grad-text">build</span>
+        </h2>
+      </Reveal>
+      <Reveal delay={80}>
+        <p className="mt-4 max-w-2xl text-lg text-ghost">
+          Full-stack, backend-leaning, with AI shipped into production rather than pinned to a
+          slide.
         </p>
+      </Reveal>
+
+      <div className="mt-12 grid gap-4 md:grid-cols-3">
+        {pillars.map((p, i) => (
+          <Reveal key={p.title} delay={140 + i * 90}>
+            <div className="glass ring-gradient spotlight lift h-full rounded-2xl p-7">
+              <div
+                aria-hidden="true"
+                className="mb-5 h-1 w-12 rounded-full bg-gradient-to-r from-violet to-cyan"
+              />
+              <h3 className="font-display text-lg font-bold text-white">{p.title}</h3>
+              <p className="mt-3 leading-relaxed text-ghost">{p.body}</p>
+            </div>
+          </Reveal>
+        ))}
       </div>
     </div>
   );
