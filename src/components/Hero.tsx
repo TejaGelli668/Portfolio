@@ -2,19 +2,11 @@ import { Download, Mail, ArrowDown } from "lucide-react";
 import profileImage from "@/assets/profileImage.jpg";
 import { RESUME_PATH, RESUME_FILENAME } from "@/lib/resume";
 import { Reveal } from "@/components/motion/Reveal";
-import { CountUp } from "@/components/motion/CountUp";
-
-const metrics = [
-  { value: 7067, label: "Subdomains discovered", source: "WAF Recon · 16 scans" },
-  { value: 22256, label: "Threat correlations", source: "Akamai SOCC · 97 alerts" },
-  { value: 152, label: "Tickets per sweep", source: "ServiceNow bot · 11–19s" },
-  { value: 39, label: "Services monitored", source: "Fleet monitor" },
-];
 
 export const Hero = () => {
   return (
     <div className="relative mx-auto flex min-h-screen max-w-6xl flex-col justify-center px-6 pb-20 pt-32 lg:px-8">
-      <div className="grid items-center gap-12 lg:grid-cols-[1.35fr_1fr]">
+      <div className="grid items-center gap-12 lg:grid-cols-[1.25fr_1fr]">
         <div>
           <Reveal>
             <span className="eyebrow-pill">
@@ -79,29 +71,14 @@ export const Hero = () => {
               <img
                 src={profileImage}
                 alt="Teja Gelli"
-                className="relative h-[19rem] w-[16rem] object-cover sm:h-[22rem] sm:w-[18.5rem]"
+                className="relative h-[23rem] w-[18.5rem] object-cover sm:h-[28rem] sm:w-[22.5rem] lg:h-[32rem] lg:w-[26rem]"
               />
             </div>
           </div>
         </Reveal>
       </div>
 
-      {/* Live metrics — these count up as they arrive */}
-      <div className="mt-16 grid grid-cols-2 gap-3 lg:grid-cols-4 lg:gap-4">
-        {metrics.map((m, i) => (
-          <Reveal key={m.label} delay={380 + i * 80}>
-            <div className="glass ring-gradient spotlight lift relative h-full overflow-hidden rounded-2xl p-5">
-              <div className="font-display text-2xl font-bold text-white sm:text-3xl">
-                <CountUp value={m.value} />
-              </div>
-              <div className="mt-1.5 text-sm font-medium text-white/85">{m.label}</div>
-              <div className="mt-0.5 text-xs text-ghost/70">{m.source}</div>
-            </div>
-          </Reveal>
-        ))}
-      </div>
-
-      <Reveal delay={720} className="mt-14 flex justify-center">
+      <Reveal delay={480} className="mt-16 flex justify-center">
         <a
           href="#about"
           aria-label="Scroll to about"

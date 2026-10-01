@@ -1,6 +1,12 @@
-import { Github, ArrowUpRight } from "lucide-react";
+import { Github, ArrowUpRight, ExternalLink } from "lucide-react";
 import { Reveal } from "@/components/motion/Reveal";
 import { onSpotlightMove } from "@/hooks/use-spotlight";
+
+type ProjectLink = {
+  label: string;
+  url: string;
+  live?: boolean;
+};
 
 type WorkOrder = {
   ref: string;
@@ -9,13 +15,52 @@ type WorkOrder = {
   description: string;
   features: string[];
   stack: string[];
-  frontendUrl: string;
-  backendUrl?: string;
+  links: ProjectLink[];
+  featured?: boolean;
 };
 
 const workOrders: WorkOrder[] = [
   {
     ref: "WO-01",
+    title: "CSA T20 Challenge Predictor",
+    subtitle: "ML forecast of South Africa's domestic T20 title",
+    description:
+      "Scrapes and cross-checks five data sources (Cricbuzz, Cricsheet ball-by-ball, ESPNcricinfo, CricTracker squads, Open-Meteo weather), blends four models into an ensemble, and simulates the rest of the 2026 tournament 20,000 times. A React dashboard explains every number.",
+    features: [
+      "542 matches since 2011-12, merged and cross-checked across sources",
+      "Elo, logistic regression, random forest, and gradient boosting ensemble",
+      "Season-by-season back-test: 58.5% on 330 held-out matches",
+      "Player-rated lineups adjusted for squads, injuries, and Test duty",
+      "Washout model built on 15 years of venue rainfall",
+      "Monte Carlo simulation of pools, Super Eights, and knockouts",
+    ],
+    stack: ["Python", "pandas", "scikit-learn", "React", "Vite", "SVG charts", "GitHub Actions", "GitHub Pages"],
+    links: [
+      { label: "Live dashboard", url: "https://tejagelli668.github.io/csa-t20-2026-prediction-model/", live: true },
+      { label: "Repository", url: "https://github.com/TejaGelli668/csa-t20-2026-prediction-model" },
+    ],
+    featured: true,
+  },
+  {
+    ref: "WO-02",
+    title: "CineBook",
+    subtitle: "Cinema ticket booking with Gemini agents",
+    description:
+      "Movie ticket booking for Hyderabad cinemas: live seat maps, snacks, and Stripe checkout, plus two Gemini tool-calling assistants. A customer concierge finds shows, picks seats, and builds the order; a manager's assistant at /admin reports occupancy and sales and schedules shows.",
+    features: [
+      "Live seat maps over WebSocket with expiring seat holds",
+      "Stripe checkout with webhook-confirmed bookings",
+      "Gemini agents that only act after the user confirms",
+      "Manager desk: occupancy, sales, film import, show scheduling",
+      "JWT auth with rate limiting and login-attempt limits",
+      "Supabase Postgres via Flyway, Supabase Storage, TMDB posters",
+    ],
+    stack: ["Spring Boot 3", "Java 17", "React", "Supabase Postgres", "Flyway", "Stripe API", "WebSocket", "Gemini AI", "JWT"],
+    links: [{ label: "Repository", url: "https://github.com/TejaGelli668/CineBook" }],
+    featured: true,
+  },
+  {
+    ref: "WO-03",
     title: "RentMate AI",
     subtitle: "AI-powered rental marketplace",
     description:
@@ -29,11 +74,13 @@ const workOrders: WorkOrder[] = [
       "Automated content moderation and analytics",
     ],
     stack: ["React", "Spring Boot", "PostgreSQL", "Redis", "Gemini AI", "JWT", "AWS S3", "WebSocket"],
-    frontendUrl: "https://github.com/TejaGelli668/RentMate-Frontend",
-    backendUrl: "https://github.com/TejaGelli668/RentMate-Backend",
+    links: [
+      { label: "Frontend", url: "https://github.com/TejaGelli668/RentMate-Frontend" },
+      { label: "Backend", url: "https://github.com/TejaGelli668/RentMate-Backend" },
+    ],
   },
   {
-    ref: "WO-02",
+    ref: "WO-04",
     title: "Financial Workflow Automation",
     subtitle: "AI document processing SaaS",
     description:
@@ -47,29 +94,13 @@ const workOrders: WorkOrder[] = [
       "Multi-format document parsing",
     ],
     stack: ["React", "TypeScript", "Node.js", "PostgreSQL", "Gemini AI", "Prisma", "JWT", "AWS S3"],
-    frontendUrl: "https://github.com/TejaGelli668/AI-Financial-Workflow-Automation",
-    backendUrl: "https://github.com/TejaGelli668/AI-Financial-Workflow-Automation/tree/main/backend",
-  },
-  {
-    ref: "WO-03",
-    title: "Cinema Management Platform",
-    subtitle: "Booking, seating, and theatre operations",
-    description:
-      "A full-stack cinema system: seat selection with dynamic pricing, Stripe payments, real-time seat locking, food ordering, and an AI assistant, alongside a complete admin workflow.",
-    features: [
-      "Dynamic seat selection and pricing",
-      "Stripe payment integration",
-      "AI movie assistant",
-      "Real-time seat locking",
-      "Admin dashboard and analytics",
-      "Food and beverage ordering",
+    links: [
+      { label: "Frontend", url: "https://github.com/TejaGelli668/AI-Financial-Workflow-Automation" },
+      { label: "Backend", url: "https://github.com/TejaGelli668/AI-Financial-Workflow-Automation/tree/main/backend" },
     ],
-    stack: ["Spring Boot", "React", "MySQL", "Stripe API", "JWT", "WebSocket", "Gemini AI"],
-    frontendUrl: "https://github.com/TejaGelli668/MovieFrontend",
-    backendUrl: "https://github.com/TejaGelli668/MovieBackend",
   },
   {
-    ref: "WO-04",
+    ref: "WO-05",
     title: "Pet Adoption Management",
     subtitle: "Adoption workflow with role-based portals",
     description:
@@ -83,11 +114,13 @@ const workOrders: WorkOrder[] = [
       "Role-based access control",
     ],
     stack: ["Spring Boot", "React", "JavaScript", "NoSQL", "Bootstrap"],
-    frontendUrl: "https://github.com/TejaGelli668/pet-adoption-ui",
-    backendUrl: "https://github.com/TejaGelli668/pet-adoption-api",
+    links: [
+      { label: "Frontend", url: "https://github.com/TejaGelli668/pet-adoption-ui" },
+      { label: "Backend", url: "https://github.com/TejaGelli668/pet-adoption-api" },
+    ],
   },
   {
-    ref: "WO-05",
+    ref: "WO-06",
     title: "Charity Donation Platform",
     subtitle: "Campaigns, donations, and approval workflow",
     description:
@@ -101,12 +134,15 @@ const workOrders: WorkOrder[] = [
       "Real-time donation tracking",
     ],
     stack: ["React", "Node.js", "MongoDB", "AWS EC2", "API Gateway", "DocumentDB", "Amplify", "JWT"],
-    frontendUrl: "https://github.com/TejaGelli668/Charity-Donation-Platform-UI",
-    backendUrl: "https://github.com/TejaGelli668/charity-donation-platform-api",
+    links: [
+      { label: "Frontend", url: "https://github.com/TejaGelli668/Charity-Donation-Platform-UI" },
+      { label: "Backend", url: "https://github.com/TejaGelli668/Charity-Donation-API" },
+    ],
   },
 ];
 
 const accents = [
+  "from-cyan to-violet",
   "from-violet to-cyan",
   "from-cyan to-pink",
   "from-pink to-amber",
@@ -124,7 +160,7 @@ export const Projects = () => {
       </Reveal>
       <Reveal delay={80}>
         <p className="mt-4 max-w-2xl text-lg text-ghost">
-          Five full-stack products, each with a public frontend and backend repository.
+          Six projects: an ML forecasting model with a live dashboard, and full-stack products shipping AI features.
         </p>
       </Reveal>
 
@@ -133,7 +169,7 @@ export const Projects = () => {
           <Reveal
             key={wo.ref}
             delay={140 + i * 90}
-            className={i === 0 ? "lg:col-span-2" : ""}
+            className={wo.featured ? "lg:col-span-2" : ""}
           >
             <article
               onMouseMove={onSpotlightMove}
@@ -159,7 +195,7 @@ export const Projects = () => {
 
               <p className="mt-4 max-w-2xl leading-relaxed text-ghost">{wo.description}</p>
 
-              <ul className={`mt-5 grid gap-x-6 gap-y-2 ${i === 0 ? "sm:grid-cols-2 lg:grid-cols-3" : "sm:grid-cols-2"}`}>
+              <ul className={`mt-5 grid gap-x-6 gap-y-2 ${wo.featured ? "sm:grid-cols-2 lg:grid-cols-3" : "sm:grid-cols-2"}`}>
                 {wo.features.map((f) => (
                   <li key={f} className="flex gap-2 text-sm text-ghost">
                     <span
@@ -183,26 +219,25 @@ export const Projects = () => {
               </div>
 
               <div className="mt-auto flex flex-wrap gap-3 pt-6">
-                <a
-                  href={wo.frontendUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-white transition-colors duration-300 hover:border-violet/50 hover:bg-violet/15"
-                >
-                  <Github className="h-4 w-4" aria-hidden="true" />
-                  Frontend
-                </a>
-                {wo.backendUrl && (
-                  <a
-                    href={wo.backendUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-white transition-colors duration-300 hover:border-cyan/50 hover:bg-cyan/15"
-                  >
-                    <Github className="h-4 w-4" aria-hidden="true" />
-                    Backend
-                  </a>
-                )}
+                {wo.links.map((link, li) => {
+                  const Icon = link.live ? ExternalLink : Github;
+                  return (
+                    <a
+                      key={link.url}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={
+                        link.live
+                          ? "inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-violet via-indigo to-cyan bg-[length:200%_auto] px-4 py-2 text-sm font-semibold text-white transition-[background-position,box-shadow] duration-500 hover:bg-[position:100%_center] hover:shadow-[0_0_40px_-6px_rgba(124,92,255,0.85)]"
+                          : `inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-white transition-colors duration-300 ${li % 2 ? "hover:border-cyan/50 hover:bg-cyan/15" : "hover:border-violet/50 hover:bg-violet/15"}`
+                      }
+                    >
+                      <Icon className="h-4 w-4" aria-hidden="true" />
+                      {link.label}
+                    </a>
+                  );
+                })}
               </div>
             </article>
           </Reveal>

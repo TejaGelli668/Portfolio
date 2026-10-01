@@ -32,7 +32,7 @@ and a hiring manager finding enough substance to open a repository.
 shipping AI-backed features and AI-assisted development as normal practice. This is corroborated by
 two independent sources — the resume's dedicated "AI-Assisted Development & Tools" skills line
 (GitHub Copilot, Claude Code, OpenAI Codex, Prompt Engineering), and the personal project portfolio,
-where four of five projects ship Gemini AI features.
+where four of six projects ship Gemini AI features.
 
 Confirmed by the user over three competing alternatives (Java/Spring specialist, backend-leaning
 full-stack, deliberately broad). The site's incumbent copy contradicts this positioning and is
@@ -54,7 +54,8 @@ the page. The page and the PDF must not contradict each other.
   Tailwind, shadcn/ui).
 - All copy lives inline in the section components. There is no CMS or data layer, so content edits are
   code edits.
-- All five projects are shown; the former "Load More" gate was removed.
+- All six projects are shown; the former "Load More" gate was removed. The two newest (the CSA T20
+  Challenge Predictor and CineBook) are full-width featured cards.
 - The resume is a static file at `public/Teja-Gelli-Resume-2026-08.pdf`; every "Print Copy" control
   is a real `<a href download>` pointing at it.
 - No deploy target is configured in the repository. The public domain is undecided, which is why the
@@ -125,9 +126,12 @@ Quantified claims carried by the resume, and therefore usable: ~25% improvement 
 workflows and ~20% cloud cost reduction (Hartford); 7,067 subdomains and 1,220 security alerts across
 16 scans, 11–19 second triage sweeps, and 11 reusable knowledge packs (T-Mobile).
 
-Five real personal projects with public GitHub repositories, each with a separate frontend and backend
-repo. The former stock-photography thumbnails were removed; no screenshots of the running applications
-exist yet, and any added later must be genuine captures.
+Six personal projects with GitHub repositories. The CSA T20 Challenge Predictor (public repo plus a
+live GitHub Pages dashboard) and CineBook (public monorepo) are the newest; the other four have
+separate frontend and backend repos. The predictor's figures (542 matches, 58.5% back-test accuracy on
+330 held-out matches, 20,000 simulations) come from its own model output. The former stock-photography
+thumbnails were removed; no screenshots of the running applications exist yet, and any added later
+must be genuine captures.
 
 **Absences that future work must not paper over:**
 
