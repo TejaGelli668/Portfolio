@@ -127,7 +127,8 @@ Quantified claims carried by the resume, and therefore usable: ~25% improvement 
 workflows and ~20% cloud cost reduction (Hartford); 7,067 subdomains and 1,220 security alerts across
 16 scans, 11–19 second triage sweeps, and 11 reusable knowledge packs (T-Mobile).
 
-Seven personal projects with GitHub repositories. Production RAG With Evals (public repo), the CSA
+Seven personal projects with GitHub repositories. Production RAG With Evals (public repo plus a GitHub
+Pages project site with an explorer of its held-out answers), the CSA
 T20 Challenge Predictor (public repo plus a live GitHub Pages dashboard) and CineBook (public monorepo)
 are the newest; the other four have separate frontend and backend repos. The RAG project's figures
 (held-out FinanceBench accuracy 15% → 49%, paired Δ +34 points with a 95% CI of [+24, +44]; right page

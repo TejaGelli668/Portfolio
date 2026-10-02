@@ -35,7 +35,10 @@ const workOrders: WorkOrder[] = [
       "CI eval gate on every push; streaming API, UI and tracing",
     ],
     stack: ["Python", "Qdrant", "Sentence Transformers", "Cross-encoder rerank", "Ollama", "FastAPI", "Streamlit", "Arize Phoenix", "GitHub Actions"],
-    links: [{ label: "Repository", url: "https://github.com/TejaGelli668/production-rag-with-evals" }],
+    links: [
+      { label: "Project site", url: "https://tejagelli668.github.io/production-rag-with-evals/", live: true },
+      { label: "Repository", url: "https://github.com/TejaGelli668/production-rag-with-evals" },
+    ],
     featured: true,
   },
   {
