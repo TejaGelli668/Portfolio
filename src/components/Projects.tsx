@@ -22,6 +22,24 @@ type WorkOrder = {
 const workOrders: WorkOrder[] = [
   {
     ref: "WO-01",
+    title: "Production RAG With Evals",
+    subtitle: "Cited answers over 360 SEC filings, tuned by evaluation",
+    description:
+      "Question answering over real 10-K, 10-Q and 8-K filings that cites the filing and page it used, or declines when the answer isn't there. Every component was kept only if a controlled experiment on the FinanceBench benchmark showed it helped, and everything runs locally on an open model.",
+    features: [
+      "Held-out accuracy 15% → 49% on FinanceBench (+34 pts, 95% CI)",
+      "Company and fiscal-year filters plus cross-encoder reranking",
+      "Right page in the top 5: 16% → 57%",
+      "Eval harness: retrieval metrics, LLM judges, bootstrap CIs",
+      "Eight experiments; BM25 hybrid and query rewriting measured and dropped",
+      "CI eval gate on every push; streaming API, UI and tracing",
+    ],
+    stack: ["Python", "Qdrant", "Sentence Transformers", "Cross-encoder rerank", "Ollama", "FastAPI", "Streamlit", "Arize Phoenix", "GitHub Actions"],
+    links: [{ label: "Repository", url: "https://github.com/TejaGelli668/production-rag-with-evals" }],
+    featured: true,
+  },
+  {
+    ref: "WO-02",
     title: "CSA T20 Challenge Predictor",
     subtitle: "ML forecast of South Africa's domestic T20 title",
     description:
@@ -42,7 +60,7 @@ const workOrders: WorkOrder[] = [
     featured: true,
   },
   {
-    ref: "WO-02",
+    ref: "WO-03",
     title: "CineBook",
     subtitle: "Cinema ticket booking with Gemini agents",
     description:
@@ -60,7 +78,7 @@ const workOrders: WorkOrder[] = [
     featured: true,
   },
   {
-    ref: "WO-03",
+    ref: "WO-04",
     title: "RentMate AI",
     subtitle: "AI-powered rental marketplace",
     description:
@@ -80,7 +98,7 @@ const workOrders: WorkOrder[] = [
     ],
   },
   {
-    ref: "WO-04",
+    ref: "WO-05",
     title: "Financial Workflow Automation",
     subtitle: "AI document processing SaaS",
     description:
@@ -100,7 +118,7 @@ const workOrders: WorkOrder[] = [
     ],
   },
   {
-    ref: "WO-05",
+    ref: "WO-06",
     title: "Pet Adoption Management",
     subtitle: "Adoption workflow with role-based portals",
     description:
@@ -120,7 +138,7 @@ const workOrders: WorkOrder[] = [
     ],
   },
   {
-    ref: "WO-06",
+    ref: "WO-07",
     title: "Charity Donation Platform",
     subtitle: "Campaigns, donations, and approval workflow",
     description:
@@ -148,6 +166,7 @@ const accents = [
   "from-pink to-amber",
   "from-amber to-violet",
   "from-violet to-pink",
+  "from-amber to-cyan",
 ];
 
 export const Projects = () => {
@@ -160,7 +179,7 @@ export const Projects = () => {
       </Reveal>
       <Reveal delay={80}>
         <p className="mt-4 max-w-2xl text-lg text-ghost">
-          Six projects: an ML forecasting model with a live dashboard, and full-stack products shipping AI features.
+          Seven projects: a RAG system tuned by evaluation, an ML forecasting model with a live dashboard, and full-stack products shipping AI features.
         </p>
       </Reveal>
 
